@@ -4,8 +4,7 @@ Replaces old reddit spoilers in new interface with modern-looking ones. It curre
 ```html
 <a href="#spoiler_anchor_name" title="spoiler_content">spoiler_description</a>
 ```
-
-It doesn't handle spoilers of form
+and
 ```html
 <a href="#spoiler_anchor_name spoiler_content">spoiler_description</a>
 ```

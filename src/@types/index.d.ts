@@ -1,4 +1,4 @@
-declare module '*.css' {
+declare module "*.css" {
   const contents: string;
   export default contents;
 }

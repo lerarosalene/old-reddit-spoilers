@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "old-reddit-spoilers",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Replaces old reddit spoilers (links with titles) with modern-looking ones",
   "scripts": {
     "sass": "sass src/index.scss src/__generated/index.css --no-source-map -s compressed",
@@ -16,7 +16,9 @@
   "author": "Larissa Rosalene <lerarosalene@outlook.com>",
   "license": "ISC",
   "dependencies": {
+    "@types/lodash": "^4.14.200",
     "esbuild": "^0.19.5",
+    "lodash": "^4.17.21",
     "rimraf": "^5.0.5",
     "sass": "^1.69.4",
     "typescript": "^5.2.2",

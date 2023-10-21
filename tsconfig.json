@@ -6,7 +6,10 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true,
-    "noEmit": true
+    "noEmit": true,
+    "paths": {
+      "@generated/*": ["./src/__generated/*"]
+    },
   },
-  "include": ["src/**/*.ts"]
+  "include": ["src/**/*.ts"],
 }
