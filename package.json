@@ -1,0 +1,25 @@
+{
+  "private": true,
+  "name": "old-reddit-spoilers",
+  "version": "1.0.0",
+  "description": "Replaces old reddit spoilers (links with titles) with modern-looking ones",
+  "scripts": {
+    "sass": "sass src/index.scss src/__generated/index.css --no-source-map -s compressed",
+    "typecheck": "tsc",
+    "build": "npm run sass && npm run typecheck && node build.js",
+    "clean": "rimraf dist src/__generated"
+  },
+  "keywords": [
+    "reddit",
+    "spoilers"
+  ],
+  "author": "Larissa Rosalene <lerarosalene@outlook.com>",
+  "license": "ISC",
+  "dependencies": {
+    "esbuild": "^0.19.5",
+    "rimraf": "^5.0.5",
+    "sass": "^1.69.4",
+    "typescript": "^5.2.2",
+    "userscript-header-format": "^1.1.0"
+  }
+}

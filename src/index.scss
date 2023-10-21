@@ -1,0 +1,12 @@
+.old-reddit-spoilers {
+  &__spoiler {
+    text-decoration: 1px dotted underline;
+
+    &_hidden {
+      cursor: pointer;
+      color: rgba(0, 0, 0, 0);
+      text-decoration: unset;
+      background-color: rgb(215, 218, 220);
+    }
+  }
+}
