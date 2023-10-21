@@ -1,37 +1,37 @@
-const fs = require('node:fs');
-const path = require('node:path');
-const esbuild = require('esbuild');
-const Header = require('userscript-header-format');
+const fs = require("node:fs");
+const path = require("node:path");
+const esbuild = require("esbuild");
+const Header = require("userscript-header-format");
 
 const fsp = fs.promises;
 
 async function main() {
-  const pkg = JSON.parse(await fsp.readFile('package.json', 'utf-8'));
+  const pkg = JSON.parse(await fsp.readFile("package.json", "utf-8"));
   const header = Header.fromObject({
-    name: 'Old Reddit Spoilers Fix',
-    namespace: 'https://lerarosalene.github.io',
+    name: "Old Reddit Spoilers Fix",
+    namespace: "https://lerarosalene.github.io",
     version: pkg.version,
     description: pkg.descriptopn,
     author: pkg.author,
-    match: '*://*.reddit.com/*',
-    icon: 'https://icons.duckduckgo.com/ip3/reddit.com.ico',
+    match: "*://*.reddit.com/*",
+    icon: "https://icons.duckduckgo.com/ip3/reddit.com.ico",
     license: pkg.license,
   }).toString();
 
   await esbuild.build({
-    entryPoints: [path.join('src', 'index.ts')],
+    entryPoints: [path.join("src", "index.ts")],
     bundle: true,
-    outfile: path.join('dist', `${pkg.name}.user.js`),
+    outfile: path.join("dist", `${pkg.name}.user.js`),
     loader: {
-      '.css': 'text'
+      ".css": "text",
     },
     banner: {
-      js: header.toString() + '\n',
+      js: header.toString() + "\n",
     },
   });
 }
 
-main().catch(error => {
+main().catch((error) => {
   console.error(error);
   process.exit(1);
 });
