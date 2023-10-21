@@ -7,7 +7,8 @@ const fsp = fs.promises;
 
 async function main() {
   const pkg = JSON.parse(await fsp.readFile("package.json", "utf-8"));
-  const header = Header.fromObject({
+
+  const headerDesc = {
     name: "Old Reddit Spoilers Fix",
     namespace: "https://lerarosalene.github.io",
     version: pkg.version,
@@ -16,7 +17,13 @@ async function main() {
     match: "*://*.reddit.com/*",
     icon: "https://icons.duckduckgo.com/ip3/reddit.com.ico",
     license: pkg.license,
-  }).toString();
+  };
+
+  if (process.env.UPDATE_URL) {
+    headerDesc.downloadURL = headerDesc.updateURL = process.env.UPDATE_URL;
+  }
+
+  const header = Header.fromObject(headerDesc).toString();
 
   await esbuild.build({
     entryPoints: [path.join("src", "index.ts")],
